@@ -2,6 +2,9 @@ package edu.gsu.csc1302.texasholdem.test;
 
 
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import edu.gsu.csc1302.texasholdem.*;
 
 //The testbed for all classes. Feel free to manipulate this as you see
@@ -16,10 +19,10 @@ public class tester {
 		
 		
 		Table gameTable = new Table();
-		Player player1 = new Player(1000, "John");
-		Player player2 = new Player(1000, "Tim");
-		Player player3 = new Player(1000, "Larry");
-		Player player4 = new Player(1000, "Bob");
+		Player player1 = new Player(1000, "Deckard");
+		Player player2 = new Player(1000, "Roy");
+		Player player3 = new Player(1000, "Pris");
+		Player player4 = new Player(1000, "Leon");
 		
 		gameTable.addPlayerToTable(player1);
 		gameTable.addPlayerToTable(player2);
@@ -63,7 +66,33 @@ public class tester {
 	
 	
 		
+		Table gameTable2 = new Table();
+		Player playerStraight = new Player(1000, "John");
 		
+		Card two = new Card(CardRanks.TEN, CardSuits.CLUB);
+		Card three = new Card(CardRanks.JACK, CardSuits.CLUB);
+		Card four = new Card(CardRanks.QUEEN, CardSuits.CLUB);
+		Card five = new Card(CardRanks.KING, CardSuits.CLUB);
+		Card six = new Card(CardRanks.ACE, CardSuits.CLUB);
+		
+		
+		
+		
+		ArrayList<Card> straightPlayerHand = new ArrayList<Card>();
+		straightPlayerHand.add(two);
+		straightPlayerHand.add(three);
+
+		ArrayList<Card> tableCards = new ArrayList<Card>();
+		tableCards.add(four);
+		tableCards.add(five);
+		tableCards.add(six);
+		
+		playerStraight.setCards(straightPlayerHand);
+		
+		System.out.println(straightPlayerHand + " " + tableCards);
+		Evaluator eval2 = new Evaluator(playerStraight, tableCards);
+		
+		System.out.println(eval2.evaluate());
 		
 		
 		

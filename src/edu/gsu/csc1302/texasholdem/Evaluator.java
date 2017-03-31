@@ -70,7 +70,7 @@ public class Evaluator {
 		if(straightFlushInHand){
 			bestHand = HandRank.STRAIGHT_FLUSH;
 		}
-		if (straightInHand && flushInHand && straightHand.get(0) == CardRanks.TEN)
+		if (straightFlushInHand && highCard.getRanks() == CardRanks.ACE)
 			bestHand = HandRank.ROYAL_FLUSH;
 		
 		return bestHand;
@@ -109,6 +109,7 @@ public class Evaluator {
 	
 	public void straightFlusherator(List<Card> cardList){
 		ArrayList<Card> flushHand = new ArrayList<>();
+		ArrayList<Card> straightHand = new ArrayList<>();
 		ArrayList<Card> flush = new ArrayList<Card>();
 		ArrayList<Card> straight = new ArrayList<Card>();
 		
@@ -116,18 +117,21 @@ public class Evaluator {
 			flushHand.add(card);
 		}
 		
+		for (Card card : playerHand){
+			straightHand.add(card);
+		}
+		
 		//this is where I found out java can do lambdas
+		Collections.sort(straightHand, (c1, c2) -> c1.getRanks().compareTo(c2.getRanks()));
+		highCard = straightHand.get(straightHand.size() - 1);
+		
 		Collections.sort(flushHand, (c1, c2) -> c1.getRanks().compareTo(c2.getRanks()));
-		
-		
 		Collections.sort(flushHand, (c1, c2) -> c1.getSuit().compareTo(c2.getSuit()));
 		
 		
+		//land of a million if statements
 		
 		for(Card card : flushHand){
-			if (flush.size() == 5){
-				flushInHand = true;
-			}
 			
 			if(!flush.isEmpty() && !(flush.size() == 5)){
 				if (card.getSuit() == flush.get(0).getSuit()){
@@ -144,10 +148,8 @@ public class Evaluator {
 		}
 		
 		
-		for(Card card : flush){
-			if (straight.size() == 5){
-				straightInHand = true;
-			}
+		for(Card card : straightHand){
+
 			if (!straight.isEmpty() && !(straight.size() == 5)){
 				if (card.getRankInt() == straight.get(straight.size() - 1).getRankInt() + 1){
 					straight.add(card);
@@ -161,10 +163,27 @@ public class Evaluator {
 			}
 			
 		}
-		
-		if (straight == flush){
-			straightFlushInHand = true;
+		if (straight.size() ==5){
+			straightInHand = true;
+			highCard = straight.get(straight.size() - 1);
 		}
+		if (flush.size() == 5){
+			flushInHand = true;
+		}
+		
+		if(straight.size() == 5 && flush.size() == 5){	
+			for(Card straightCount : straight){
+				for(Card flushCount : flush){
+					if(straightCount.equals(flushCount)){
+						straightFlushInHand = true;
+					}
+					else {
+						straightFlushInHand = false;
+					}
+				}
+			}
+		}
+		
 	}
 	
 	//getters for class
