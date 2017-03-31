@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//this is where the magic happens. This class should be everything you'd
+//expect from a game of poker. The community cards are dealt to the table
+//object, the deck is built and stored here, the players are listed here, 
+//the pot for the game is stored here, etc. 
+
 public class Table {
 
 	private Integer pot = 0;

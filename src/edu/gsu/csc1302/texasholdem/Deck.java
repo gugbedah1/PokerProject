@@ -14,6 +14,12 @@ public class Deck {
 		return cards;
 	}
 	
+	
+	//Default constructor for a deck of cards.
+	//When instantiated this creates a standard 
+	//52 card deck of cards AND shuffles the cards
+	//in the best way Collections.shuffle() can.
+	
 	public Deck() {
 		createDeck();
 		Collections.shuffle(cards);
@@ -34,11 +40,17 @@ public class Deck {
 	//TODO: Fisher-Yates style shuffle
 	
 
+	// Deals the card at the first index of the deck
+	//and removes that card from the deck.
+	
 	public Card dealFromTop() {
 		Card card = cards.get(0);
 		cards.remove(card);
 		return card;
 	}
+	
+	//Deals the flop and removes the flop cards from
+	//the deck.
 	
 	public  List<Card> dealFlop(){
 		flop = new ArrayList<Card>(3);
@@ -51,6 +63,8 @@ public class Deck {
 		}
 		return flop;
 	}	
+	
+	//getters
 	
 	public List<Card> getFlop() {
 		return flop;

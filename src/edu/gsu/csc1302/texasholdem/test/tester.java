@@ -1,9 +1,13 @@
 package edu.gsu.csc1302.texasholdem.test;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import edu.gsu.csc1302.texasholdem.*;
+
+//The testbed for all classes. Feel free to manipulate this as you see
+//fit to poke around the game engine to get a feel for how everything works.
+//Don't be afraid to press 'Run' and see what happens. If it fails spectacularly,
+//let me know.
 
 public class tester {
 

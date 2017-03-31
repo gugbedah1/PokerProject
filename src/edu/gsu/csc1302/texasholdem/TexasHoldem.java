@@ -5,9 +5,6 @@ import edu.gsu.csc1302.coll1.mwhitmire.*;
 
 public class TexasHoldem {
 
-	private MyDeck tableDeck = new MyDeck(); 
+	//TODO: Create the game engine.
 	
-	private void Deal(){
-	
-	}
 }
