@@ -80,22 +80,25 @@ public class Evaluator {
 	//stores them in pairList.
 	
 	public void cardRankCounter(List<Card> cardList){
+		ArrayList<Card> counterList = new ArrayList<>();
 		
+		for (Card card : cardList){
+			counterList.add(card);
+		}
 		
- 		for(Card card : cardList){
-			Integer count = 1;
-			if (mappedCards.containsKey(card.getRanks())){
+		Collections.sort(counterList, (c1, c2) -> c1.getRanks().compareTo(c2.getRanks()));
+		
+		Integer count = 1;
+		for (Card card : counterList){
+
+			if(!mappedCards.containsKey(card.getRanks())){
+				count = 1;
+				mappedCards.put(card.getRanks(), count);
 				count++;
-				if(mappedCards.get(card.getRanks()).equals(count)){
-					mappedCards.put(card.getRanks(), count++);
-					highCard = card;
-					
-				} else {
-				mappedCards.put(card.getRanks(), count);
-				}
 			}
-			if (!mappedCards.containsKey(card.getRanks())){
+			else if (mappedCards.containsKey(card.getRanks())){	
 				mappedCards.put(card.getRanks(), count);
+				count++;
 			}
 		}
 	}

@@ -66,34 +66,40 @@ public class tester {
 	
 	
 		
-		Table gameTable2 = new Table();
-		Player playerStraight = new Player(1000, "John");
-		
-		Card two = new Card(CardRanks.TEN, CardSuits.CLUB);
-		Card three = new Card(CardRanks.JACK, CardSuits.CLUB);
-		Card four = new Card(CardRanks.QUEEN, CardSuits.CLUB);
-		Card five = new Card(CardRanks.KING, CardSuits.CLUB);
-		Card six = new Card(CardRanks.ACE, CardSuits.CLUB);
-		
-		
-		
-		
-		ArrayList<Card> straightPlayerHand = new ArrayList<Card>();
-		straightPlayerHand.add(two);
-		straightPlayerHand.add(three);
-
-		ArrayList<Card> tableCards = new ArrayList<Card>();
-		tableCards.add(four);
-		tableCards.add(five);
-		tableCards.add(six);
-		
-		playerStraight.setCards(straightPlayerHand);
-		
-		System.out.println(straightPlayerHand + " " + tableCards);
-		Evaluator eval2 = new Evaluator(playerStraight, tableCards);
-		
-		System.out.println(eval2.evaluate());
-		
+//		Table gameTable2 = new Table();
+//		Player playerStraight = new Player(1000, "John");
+//		
+//		Card two = new Card(CardRanks.TEN, CardSuits.CLUB);
+//		Card three = new Card(CardRanks.JACK, CardSuits.CLUB);
+//		Card four = new Card(CardRanks.KING, CardSuits.CLUB);
+//		Card five = new Card(CardRanks.ACE, CardSuits.CLUB);
+//		Card six = new Card(CardRanks.QUEEN, CardSuits.CLUB);
+//		Card seven = new Card(CardRanks.ACE, CardSuits.DIAMOND);
+//		Card eight = new Card(CardRanks.ACE, CardSuits.DIAMOND);
+//		
+//		
+//		
+//		
+//		ArrayList<Card> straightPlayerHand = new ArrayList<Card>();
+//		straightPlayerHand.add(two);
+//		straightPlayerHand.add(three);
+//
+//		ArrayList<Card> tableCards = new ArrayList<Card>();
+//		tableCards.add(four);
+//		tableCards.add(five);
+//		tableCards.add(six);
+//		tableCards.add(seven);
+//		tableCards.add(eight);
+//
+//
+//		
+//		playerStraight.setCards(straightPlayerHand);
+//		
+//		System.out.println(straightPlayerHand + " " + tableCards);
+//		Evaluator eval2 = new Evaluator(playerStraight, tableCards);
+//		
+//		System.out.println(eval2.evaluate());
+//		
 		
 		
 		
