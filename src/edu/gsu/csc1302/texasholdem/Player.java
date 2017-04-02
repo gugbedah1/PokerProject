@@ -2,6 +2,7 @@ package edu.gsu.csc1302.texasholdem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 //Creates a Player object and represents all assets relevant to a
 //player in a game of poker including the results of any evaluate method
@@ -16,6 +17,7 @@ public class Player {
 	private Card highCard = null;
 	private Integer bankroll = 0;
 	private String name = null;
+	private Integer bet = 0;
 	
 	
 	//default player constructor.
@@ -33,7 +35,35 @@ public class Player {
 	}
 	
 	
-
+	public void bet(){
+		bet = 0;
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter a bet amount: ");
+		bet = s.nextInt();
+		s.close();
+		
+		if(bet <= bankroll){
+			bankroll = bankroll - bet;
+		}
+		else if(bet > bankroll){
+			System.out.println("Bet exceeds your bankroll. "
+					+ "Please enter a valid amount");
+			bet();
+		}
+		else {
+			System.out.println("The betting system does not currently support "
+					+ "abstract bets such as car titles or estate deeds,"
+					+ "please enter a whole digit integer value and"
+					+ "seek help. ");
+			bet();
+		}
+		
+	}
+	
+	
+	
+	
+	//getters and setters
 	public Integer getBankroll() {
 		return bankroll;
 	}
@@ -72,6 +102,14 @@ public class Player {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Integer getBet() {
+		return bet;
+	}
+
+	public void setBet(Integer bet) {
+		this.bet = bet;
 	}
 	
 	

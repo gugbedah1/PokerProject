@@ -49,6 +49,10 @@ public class Table {
 		return playersByHandRank.get(playersByHandRank.size() -1);
 	}
 	
+	public void resetDeck(){
+		gameDeck = new Deck();
+	}
+	
 	
 	
 	//getters and setters

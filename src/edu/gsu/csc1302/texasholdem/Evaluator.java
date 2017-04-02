@@ -11,7 +11,6 @@ public class Evaluator {
 	private List<Card> playerHand = new ArrayList<Card>();
 	private TreeMap<CardRanks, Integer> mappedCards = new TreeMap<CardRanks, Integer>();
 	private List<CardRanks> pairList = new ArrayList<>();
-	private ArrayList<CardRanks> straightHand = new ArrayList<>();
 	private Card highCard = new Card();
 	private Boolean flushInHand = false;
 	private Boolean straightInHand = false;

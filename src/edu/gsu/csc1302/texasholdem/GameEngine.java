@@ -6,25 +6,49 @@ public class GameEngine {
 	private Table gameTable;
 
 	public void startGame() {
+		
 		setGameTable(new Table());
 		createUser();
+		gameRound();
+		
 		//fire up the AI and add them to the game.
-		//start the first round
 		
 	}
 	
 	public void gameRound() {
 		dealHand();
+		System.out.println("Your Hand is: " + 
+		gameTable.getGamePlayers().get(0).getCards());
 		//pre-flop betting
-		gameTable.getGameDeck().dealFlop();
+		System.out.println("Dealing flop...");
+		gameTable.getCommunityCards().addAll(gameTable.getGameDeck().dealFlop());
+		System.out.println("Community Cards: " +
+		gameTable.getCommunityCards());
 		//bet
+		System.out.println("Dealing turn...");
 		gameTable.getCommunityCards().add(gameTable.getGameDeck().dealFromTop());
+		System.out.println("Community Cards: " +
+				gameTable.getCommunityCards());
 		//bet
+		System.out.println("Dealing river...");
 		gameTable.getCommunityCards().add(gameTable.getGameDeck().dealFromTop());
+		System.out.println("Community Cards: " +
+				gameTable.getCommunityCards());
 		//more betting... until all but one folds.. else
-		gameTable.getWinner();
+		
+
+		//gameTable.getWinner(); --add this when AI exists.
 		//print out results..
 		//divvy out the pot
+		
+		System.out.println("Preparing for next round...");
+		gameTable.getCommunityCards().clear();
+		
+		for(Player player : gameTable.getGamePlayers()){
+			player.getCards().clear();
+		}
+		
+		gameTable.resetDeck();
 		
 		
 	}
@@ -42,6 +66,11 @@ public class GameEngine {
 		Player user = new Player(bankroll, name);
 		gameTable.addPlayerToTable(user);
 		userScanner.close();
+		
+		System.out.println("Your username is: " + 
+				gameTable.getGamePlayers().get(0).getName() + 
+				" Your bankroll is: " + 
+				gameTable.getGamePlayers().get(0).getBankroll());
 		
 	}
 	
