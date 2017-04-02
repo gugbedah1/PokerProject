@@ -21,6 +21,11 @@ public class Evaluator {
 	//main evaluator constructor. takes a player, get's their cards,
 	//gets the table cards, and merges them into a combined hand.
 	
+	//default constructor.
+	public Evaluator(){
+		
+	}
+	
 	public Evaluator(Player player, List<Card> cards){
 		List<Card> mergedHand = new ArrayList<Card>();
 		

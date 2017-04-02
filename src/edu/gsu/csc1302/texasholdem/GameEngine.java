@@ -8,11 +8,25 @@ public class GameEngine {
 	public void startGame() {
 		setGameTable(new Table());
 		createUser();
+		//fire up the AI and add them to the game.
+		//start the first round
 		
 	}
 	
 	public void gameRound() {
 		dealHand();
+		//pre-flop betting
+		gameTable.getGameDeck().dealFlop();
+		//bet
+		gameTable.getCommunityCards().add(gameTable.getGameDeck().dealFromTop());
+		//bet
+		gameTable.getCommunityCards().add(gameTable.getGameDeck().dealFromTop());
+		//more betting... until all but one folds.. else
+		gameTable.getWinner();
+		//print out results..
+		//divvy out the pot
+		
+		
 	}
 
 	public void createUser(){
