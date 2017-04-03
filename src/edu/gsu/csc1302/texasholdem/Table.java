@@ -3,6 +3,7 @@ package edu.gsu.csc1302.texasholdem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 //this is where the magic happens. This class should be everything you'd
 //expect from a game of poker. The community cards are dealt to the table
@@ -47,6 +48,45 @@ public class Table {
 		//but needs to be able to add it in the event HIGH_CARD is the highest hand a player has.
 
 		return playersByHandRank.get(playersByHandRank.size() -1);
+	}
+	
+	
+	public void betHandler() {
+		Scanner s = new Scanner(System.in);
+		int currentBet = 0;
+		int playerBet = 0;
+		System.out.println("Raise, call, check, or fold? ");
+		
+		for (Player player : gamePlayers){
+			
+			if(s.hasNextLine()){
+				if (s.nextLine().equalsIgnoreCase("raise")){
+					System.out.println("Current bet is " + currentBet
+							+ "." + " Enter amount to raise: ");
+					player.bet();
+					playerBet = currentBet + player.getBet();
+				}
+				else if(s.nextLine().equalsIgnoreCase("call")){
+					player.bet(currentBet);
+				}
+				else if(s.nextLine().equalsIgnoreCase("fold")){
+					//gotta add folding at some point.
+				}
+				
+				
+			}
+			
+			player.bet();
+			int betAmount = player.getBet();
+			
+			if(betAmount > currentBet){
+				currentBet = betAmount;
+				pot = pot + betAmount;
+			}
+			
+			
+			pot = pot + betAmount;
+		}
 	}
 	
 	public void resetDeck(){

@@ -20,10 +20,17 @@ public class Player {
 	private Integer bet = 0;
 	
 	
+	//default constructor for AI only.
+	public Player(){
+		
+	}
+	
 	//default player constructor.
 	//all created players should be given a name and
 	//a bankroll(money for betting,) while the rest of a player's assets
 	//should be handled by methods outside of the Player class.
+	
+	
 	
 	public Player(Integer bankroll, String name) {
 		this.bankroll = bankroll;
@@ -35,12 +42,21 @@ public class Player {
 	}
 	
 	
-	public void bet(){
+	public int bet(){
+		
 		bet = 0;
-		Scanner s = new Scanner(System.in);
 		System.out.println("Enter a bet amount: ");
-		bet = s.nextInt();
-		s.close();
+		Scanner s = new Scanner(System.in);
+			
+		try{
+			bet = s.nextInt();
+			}catch(Exception e){
+				System.out.println("The betting system does not currently support "
+						+ "abstract bets such as car titles or estate deeds, "
+						+ "please enter a whole digit integer value or "
+						+ "seek professional help. ");
+				bet();
+			}
 		
 		if(bet <= bankroll){
 			bankroll = bankroll - bet;
@@ -50,16 +66,21 @@ public class Player {
 					+ "Please enter a valid amount");
 			bet();
 		}
-		else {
-			System.out.println("The betting system does not currently support "
-					+ "abstract bets such as car titles or estate deeds,"
-					+ "please enter a whole digit integer value and"
-					+ "seek help. ");
-			bet();
-		}
-		
+		return bet;	
 	}
 	
+	public int bet(int i){
+		bet = i;
+		if(bet <= bankroll){
+			bankroll = bankroll - bet;
+		}
+		else {
+			System.out.println("You don't have that kind of money.");
+		}
+		
+		return bet;
+		
+	}
 	
 	
 	
