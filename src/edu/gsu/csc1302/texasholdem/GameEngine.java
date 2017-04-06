@@ -27,9 +27,6 @@ public class GameEngine {
 		System.out.println("Your Hand is: " + 
 		gameTable.getGamePlayers().get(0).getCards());
 		
-		//gameTable.betHandler(); --uncomment and paste in all betting slots
-		//when this actually works.
-		
 		
 		System.out.println("Dealing flop...");
 		gameTable.getCommunityCards().addAll(gameTable.getGameDeck().dealFlop());

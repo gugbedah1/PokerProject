@@ -50,45 +50,6 @@ public class Table {
 		return playersByHandRank.get(playersByHandRank.size() -1);
 	}
 	
-	
-	public void betHandler() {
-		Scanner s = new Scanner(System.in);
-		int currentBet = 0;
-		int playerBet = 0;
-		System.out.println("Raise, call, check, or fold? ");
-		
-		for (Player player : gamePlayers){
-			
-			if(s.hasNextLine()){
-				if (s.nextLine().equalsIgnoreCase("raise")){
-					System.out.println("Current bet is " + currentBet
-							+ "." + " Enter amount to raise: ");
-					player.bet();
-					playerBet = currentBet + player.getBet();
-				}
-				else if(s.nextLine().equalsIgnoreCase("call")){
-					player.bet(currentBet);
-				}
-				else if(s.nextLine().equalsIgnoreCase("fold")){
-					//gotta add folding at some point.
-				}
-				
-				
-			}
-			
-			player.bet();
-			int betAmount = player.getBet();
-			
-			if(betAmount > currentBet){
-				currentBet = betAmount;
-				pot = pot + betAmount;
-			}
-			
-			
-			pot = pot + betAmount;
-		}
-	}
-	
 	public void resetDeck(){
 		gameDeck = new Deck();
 	}
