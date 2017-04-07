@@ -1,4 +1,4 @@
-package edu.gsu.csc1302.texasholdem;
+package src.edu.gsu.csc1302.texasholdem;
 
 import java.util.Scanner;
 
@@ -19,13 +19,17 @@ public class GameEngine {
 	}
 	
 	public void gameRound() {
-		int currentBet = 0;
+		BetHandler handler = new BetHandler(gameTable.getGamePlayers(),
+				gameTable.getPot(), gameTable);
+		
+	//	int currentBet = 0;
 		
 		System.out.println("Dealing hand.." );
 		dealHand();
 		
 		System.out.println("Your Hand is: " + 
 		gameTable.getGamePlayers().get(0).getCards());
+		handler.roundBetting();
 		
 		
 		System.out.println("Dealing flop...");

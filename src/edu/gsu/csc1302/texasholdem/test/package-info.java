@@ -5,4 +5,4 @@
  * @author vates
  *
  */
-package edu.gsu.csc1302.texasholdem.test;
+package src.edu.gsu.csc1302.texasholdem.test;

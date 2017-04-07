@@ -1,8 +1,10 @@
-package edu.gsu.csc1302.texasholdem.test;
+package src.edu.gsu.csc1302.texasholdem.test;
 
 
 
-import edu.gsu.csc1302.texasholdem.*;
+import java.util.ArrayList;
+
+import src.edu.gsu.csc1302.texasholdem.*;
 
 //The testbed for all classes. Feel free to manipulate this as you see
 //fit to poke around the game engine to get a feel for how everything works.
@@ -13,7 +15,12 @@ public class tester {
 
 	public static void main(String[] args){
 		
+		//game engine test
+		GameEngine game = new GameEngine();
+		game.startGame();
 		
+		
+		//uncomment here for more fun stuff.
 		
 //		Table gameTable = new Table();
 //		Player player1 = new Player(1000, "Deckard");
@@ -59,11 +66,11 @@ public class tester {
 //		System.out.println("Player " + gameTable.getGamePlayers().get(3).getName() + " has " + gameTable.getGamePlayers().get(3).getHandRank());
 //		System.out.println("Winner " + gameTable.getWinner().getName() );
 //		
-		
-	
-	
-		
-//		Table gameTable2 = new Table();
+//		
+//	
+//	
+//		
+//		
 //		Player playerStraight = new Player(1000, "John");
 //		
 //		Card two = new Card(CardRanks.TEN, CardSuits.CLUB);
@@ -96,10 +103,6 @@ public class tester {
 //		Evaluator eval2 = new Evaluator(playerStraight, tableCards);
 //		
 //		System.out.println(eval2.evaluate());
-//		
-		GameEngine game = new GameEngine();
-		game.startGame();
-		
-		
+				
 	}
 }

@@ -1,5 +1,6 @@
-package edu.gsu.csc1302.texasholdem;
+package src.edu.gsu.csc1302.texasholdem;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,8 +8,17 @@ public class BetHandler {
 
 	int currentBet = 0;
 	Scanner s = new Scanner(System.in);
+	List<Player> list = new ArrayList<Player>();
+	int pot;
+	Table gameTable;
 	
 	public BetHandler(List<Player> list , int pot, Table gameTable){
+				this.list = list;
+				this.pot = pot;
+				this.gameTable = gameTable;
+	}
+
+	public void roundBetting() {
 		String betType = null;
 		
 		for (Player player : list){
@@ -33,22 +43,27 @@ public class BetHandler {
 				else if (betType.equalsIgnoreCase("fold")){
 			
 				}
-			}		
+			}
 	}
-
+	
 	public void raise(Player player) {
 		int raise = 0;
+		int bet = 0;
+
 		
-		System.out.println("Enter amount to raise: ");
-		if(s.hasNextInt()){
-			int bet = 0;
+		while (raise <= 0){
+			System.out.println("Enter amount to raise: ");
 			raise = s.nextInt();
-			bet = raise + currentBet;
-			player.bet(bet);
 		}
-		else {
-			//retry somehow
-		}
+		
+		bet = raise + currentBet;
+		player.bet(bet);
+		System.out.println("Player " + player.getName() + " raises " + raise
+				+ " for a total of " + bet);
+			
+		
+		
+		
 		
 	}
 	public void call(Player player){
@@ -62,7 +77,7 @@ public class BetHandler {
 	public void check(Player player){
 		//add proper check to see if check is valid.
 		
-		System.out.println("Player " + player + " checks.");
+		System.out.println("Player " + player.getName() + " checks.");
 	}
 
 

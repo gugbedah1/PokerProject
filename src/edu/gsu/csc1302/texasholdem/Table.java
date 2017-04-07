@@ -1,4 +1,4 @@
-package edu.gsu.csc1302.texasholdem;
+package src.edu.gsu.csc1302.texasholdem;
 
 import java.util.ArrayList;
 import java.util.Collections;

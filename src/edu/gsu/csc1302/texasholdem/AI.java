@@ -1,4 +1,4 @@
-package edu.gsu.csc1302.texasholdem;
+package src.edu.gsu.csc1302.texasholdem;
 
 public class AI {
 //TODO: A lot of stuff needs to happen here.

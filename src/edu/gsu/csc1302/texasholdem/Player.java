@@ -1,4 +1,4 @@
-package edu.gsu.csc1302.texasholdem;
+package src.edu.gsu.csc1302.texasholdem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,7 @@ public class Player {
 	private Integer bankroll = 0;
 	private String name = null;
 	private Integer bet = 0;
+	
 	
 	
 	//default constructor for AI only.
@@ -49,7 +50,7 @@ public class Player {
 		Scanner s = new Scanner(System.in);
 			
 		try{
-			bet = s.nextInt();
+			bet += s.nextInt();
 			}catch(Exception e){
 				System.out.println("The betting system does not currently support "
 						+ "abstract bets such as car titles or estate deeds, "
@@ -70,7 +71,7 @@ public class Player {
 	}
 	
 	public int bet(int i){
-		bet = i;
+		bet += i;
 		if(bet <= bankroll){
 			bankroll = bankroll - bet;
 		}
@@ -79,6 +80,12 @@ public class Player {
 		}
 		
 		return bet;
+		
+	}
+	
+	public void reset(){
+		bet = 0;
+		highCard = null;
 		
 	}
 	
@@ -132,6 +139,7 @@ public class Player {
 	public void setBet(Integer bet) {
 		this.bet = bet;
 	}
+
 	
 	
 	
